@@ -1,38 +1,38 @@
 %html
   %head
-    %title LunchOrdering - #{yield(:title)}
+    %title Lunch Ordering - #{yield(:title)}
     = csrf_meta_tags
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag    'http://bootswatch.com/flatly/bootstrap.min.css','data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-
+    = javascript_include_tag 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js', |
+                              'data-turbolinks-track': 'reload' |
   %body
 
 
     %nav.navbar.navbar-default
-      .container-fluid
+      .container
         .navbar-header
           =link_to(image_tag('logo.png',:width => 200), root_path)
         .navbar-collapse
           -if(user_signed_in?)
             %ul.nav.navbar-nav.pull-right
-              %li
-                %a= current_user.name
               %li.dropdown
                 %a.dropdown-toggle{'data-toggle':'dropdown', href: '#'}
-                  Profile
+                  = current_user.name
                   %span.caret
                 %ul.dropdown-menu
                   %li
                     = link_to('Edit profile', edit_path)
-              %li
-                = link_to('Sign out', sign_out_path)
+                  %li
+                    = link_to('Sign out', sign_out_path)
           -else
             %ul.nav.navbar-nav.pull-right
               %li
                 = link_to('Sign in', sign_in_path)
               %li
                 = link_to('Sign up', sign_up_path)
-    .container-fluid
+    .container
       = yield
+    %footer.footer

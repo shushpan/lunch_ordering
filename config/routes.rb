@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get 'change_password' => 'devise/passwords#edit'
   end
 
+  get 'check_email' => 'user/users#check_email'
 
 
 end

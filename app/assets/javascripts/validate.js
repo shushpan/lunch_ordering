@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function () {
-   var user_validator =  $('#user-sign-up').validate({
+    $('#user-sign-up').validate({
         rules: {
             "user[name]": {
                 required: true,
@@ -26,5 +26,39 @@ $(document).on('turbolinks:load', function () {
                remote: $.validator.format("The email is already in use!")
            }
        }
+    })
+
+    $('#user-log-in').validate({
+        rules: {
+            "user[email]": {
+                required: true,
+                email: true
+            },
+            "user[password]": {
+                required: true,
+                minlength: 6
+            }
+        }
+    })
+
+    $('#user-edit').validate({
+        rules: {
+            "user[email]":{
+                required: true,
+                email: true
+            },
+            "user[password]":{
+                required: true,
+                minlength: 6
+            },
+            "user[password_confirmation]":{
+                required: true,
+                equalTo: "#user_password"
+            },
+            "user[current_password]": {
+                required: true,
+                minlength: 6
+            }
+        }
     })
 })

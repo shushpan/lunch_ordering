@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   before_save do
+    self.email.downcase!
     self.admin = true if User.count.zero?
   end
 

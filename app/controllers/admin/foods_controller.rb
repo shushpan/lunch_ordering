@@ -2,12 +2,12 @@ class Admin::FoodsController < ApplicationController
   before_action :authenticate_user!, :is_user_admin
 
   def new
-
+  @food = Food.new
   end
 
   def create
     @food = Food.new(permitted_params)
-    @food.date = Date.today
+    render json: params[:photo]
   end
 
   private

@@ -1,0 +1,16 @@
+=provide(:title," Add new food")
+%h2.text-center Add new food
+.container
+  = simple_form_for(@food, url: admin_foods_path(@food), html:{ :id => 'new-food'}) do |f|
+    = f.error_notification
+    .form-group
+      = f.input :name, label: 'Name', required: true, autofocus: true
+    .form-group
+      = f.input :price, label: 'Price', required: true
+    .form-group
+      = f.input :food_type, label: 'Type',type: 'select', collection: ['First course', 'Main course', 'Drink'],
+          selected: 'First course', required:true
+    .form-group
+      =f.input :photo, as: :file, label: 'Add photo'
+    = f.button :submit, "Add food",class: 'btn btn-primary'
+

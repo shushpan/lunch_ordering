@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'static_pages#index'
+  root 'static_pages#new'
 
   devise_for :users
   devise_scope :user do
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get 'check_email' => 'user/users#check_email'
 
-  get 'menu' => 'foods#index'
+  get 'menu' => 'foods#new'
   post'get_foods_for_date' => 'foods#get_foods_for_date'
 
   post 'new_order' => 'orders#new'
@@ -22,6 +22,6 @@ Rails.application.routes.draw do
     resources :users, only: [:index]
     resources :orders, only: [:index]
     get 'get_orders_for_date' => 'orders#get_orders_for_date'
-    resources :foods, only: [:index, :create]
+    resources :foods, only: [:new, :create]
   end
 end

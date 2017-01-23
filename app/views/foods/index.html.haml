@@ -1,1 +1,49 @@
 =provide(:title,"Menu")
+%h2.text-center Menu
+.weekdays-wrap
+  -days_of_the_current_week.each do |day|
+    .weekday.btn.btn-primary{ class: [day[:later_today] && 'disabled',
+                              day[:full_date] == Date.today && 'active today btn-success'],
+                              data:{ajax_path: 'test' } }
+      %span.weekday-name #{day[:weekday]}
+      .addition
+        %span.day #{day[:day]}
+        %span.month #{day[:month]}
+.menu-wrap
+  %h4.text-center.text-muted You can choose only one item from the first course, |
+    one item from the main course and one drink. |
+  .row
+    .col-sm-4
+      .first-course-wrap
+        .caption
+          %h4.text-center First course
+        .body
+          .food
+            %img.img-circle{src: 'https://dummyimage.com/60x60/5a80c7/ffffff'}
+            %span Test food 1 Test food 1 Test food 1 Test food 1 Test food 1
+          .food
+            %img.img-circle{src: 'https://dummyimage.com/60x60/5a80c7/ffffff'}
+            %span Test food 1
+    .col-sm-4
+      .main-course-wrap
+        .caption
+          %h4.text-center Main course
+        .body
+          .food
+            %img.img-circle{src: 'https://dummyimage.com/60x60/5a80c7/ffffff'}
+            %span Test food 1
+          .food
+            %img.img-circle{src: 'https://dummyimage.com/60x60/5a80c7/ffffff'}
+            %span Test food 1
+    .col-sm-4
+      .drink-wrap
+        .caption
+          %h4.text-center Drink
+        .body
+          .food
+            %img.img-circle{src: 'https://dummyimage.com/60x60/5a80c7/ffffff'}
+            %span Test food 1
+          .food
+            %img.img-circle{src: 'https://dummyimage.com/60x60/5a80c7/ffffff'}
+            %span Test food 1
+  %button.btn.btn-primary.center-block#order-btn Order

@@ -1,11 +1,13 @@
 = provide(:title,'Welcome!')
 .jumbotron
-  - unless user_signed_in?
+  - if user_signed_in?
+    %h1 Hello, #{current_user.name}!
+    %p
+      Welcome to "Lunch ordering".
+    = link_to('Menu', menu_path, :class => 'btn btn-success')
+  - else
     %h1 Hello!
     %p
       Welcome to "Lunch ordering".
     = link_to('Sign in', sign_in_path, :class => 'btn btn-success')
-  - else
-    %h1 Hello, #{current_user.name}!
-    %p
-      Welcome to "Lunch ordering".
+

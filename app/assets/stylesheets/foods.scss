@@ -1,3 +1,96 @@
-// Place all the styles related to the foods controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "flexbox";
+$border-color-food: white;
+$background-color-first-wrap: rgba(87, 235, 112, 0.31);
+$background-color-main-wrap: rgba(105, 50, 232, 0.31);
+$background-color-drink-wrap: rgba(243, 156, 18, 0.31);
+
+.weekdays-wrap{
+  @include flexbox;
+  @include flex-wrap(wrap);
+  @include justify-content(space-around);
+  margin-top: 25px;
+  .weekday{
+    position: relative;
+    @include flexbox;
+    @include flex-wrap(wrap);
+    @include flex-basis(10%);
+    @include align-items(center);
+    padding: .5em;
+  }
+  .addition{
+    @include flex-basis(100px);
+    text-align: center;
+  }
+  .weekday-name{
+    @extend .addition;
+    font-size: 1.5em;
+  }
+  .today:after{
+    content: "Today";
+    position: absolute;
+    top: -23px;
+    color: #b3b0b0;
+    width: 85%;
+    text-align: center;
+    font-size: 13px;
+    font-style: italic;
+  }
+}
+.menu-wrap{
+  margin-top: 40px;
+  .first-course-wrap, .main-course-wrap, .drink-wrap{
+    border: 1px solid $border-color-food;
+    border-radius: 12px;
+    padding:0px 15px 0px 15px;
+    .caption{
+      margin:0px -15px 0px -15px;
+      border-bottom: 1px solid $border-color-food;
+    }
+    .body {
+      position: relative;
+      width: 100%;
+      .food {
+        margin:0px -15px 0px -15px;
+        padding: 7px 15px;
+        border-bottom: 1px solid $border-color-food;
+        @include flexbox;
+        @include align-items(center);
+        &:hover{
+          cursor: pointer;
+        }
+        img{
+          margin-right: 10px;
+        }
+      }
+      .food:last-child{
+        border-bottom-left-radius: 11.5px;
+        border-bottom-right-radius: 11.5px;
+        border-bottom: none;
+      }
+    }
+  }
+  .first-course-wrap{
+    background-color: $background-color-first-wrap;
+    .food_active, .food:hover{
+      background-color: rgba(68, 122, 91, 0.31);
+    }
+  }
+  .main-course-wrap{
+    background-color: $background-color-main-wrap;
+    .food_active, .food:hover{
+      background-color: rgba(60, 60, 121, 0.32);
+    }
+  }
+  .drink-wrap{
+    background-color: $background-color-drink-wrap;
+    .food_active, .food:hover{
+      background-color: rgba(188, 99, 24, 0.35);
+    }
+  }
+  .row{
+    margin-bottom: 25px;
+  }
+  #order-btn{
+    width: 100px;
+  }
+}

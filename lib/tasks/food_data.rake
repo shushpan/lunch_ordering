@@ -7,13 +7,13 @@ namespace :db do
       price = Faker::Commerce.price
       date = Date.today
       food_type = ["first-course", "main-course", "drinks"]
-      photo = '/public/food.png'
+      photo = Faker::LoremPixel.image('60x60', false, 'food')
       Food.create!( name: name,
                     description: description,
                     price: price,
                     date: date,
-                    food_type: food_type[rand(2)],
-                    photo: photo)
+                    food_type: food_type[rand(3)],
+                    photo: photo )
     end
   end
 end

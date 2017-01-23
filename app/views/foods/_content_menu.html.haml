@@ -1,0 +1,46 @@
+%h4.text-center.text-muted You can choose only one item from the first course, one item from the main course and one drink.
+.row
+  .col-sm-4
+    .first-course-wrap
+      .caption
+        %h4.text-center First course
+      .body
+        -unless get_food_by_course('first-course').blank?
+          -get_food_by_course('first-course').each do |food|
+            .food
+              .left-wrap
+                %img.img-circle{src: food.photo}
+                %span.name #{food.name}
+              %span.price #{food.price} &#36;
+        -else
+          %p.no-food No food
+  .col-sm-4
+    .main-course-wrap
+      .caption
+        %h4.text-center Main course
+      .body
+        -unless get_food_by_course('main-course').blank?
+          -get_food_by_course('main-course').each do |food|
+            .food{}
+              .left-wrap
+                %img.img-circle{src: food.photo}
+                %span.name #{food.name}
+              %span.price #{food.price} &#36;
+        -else
+          %p.no-food No food
+  .col-sm-4
+    .drink-wrap
+      .caption
+        %h4.text-center Drink
+      .body
+        -unless get_food_by_course('drinks').blank?
+          -get_food_by_course('drinks').each do |food|
+            .food
+              .left-wrap
+                %img.img-circle{src: food.photo}
+                %span.name #{food.name}
+              %span.price #{food.price} &#36;
+        -else
+          %p.no-food No food
+-if local_assigns[:date] == Date.today.to_s or !@foods.blank?
+  %button.btn.btn-primary.center-block#order-btn Order

@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   end
 
   get 'menu' => 'foods#index'
-
+  post'get_foods_for_date' => 'foods#get_foods_for_date'
 end

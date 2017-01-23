@@ -9,4 +9,8 @@ module FoodHelper
               :later_today => day > today ? true : false }
     end
   end
+
+  def get_food_by_course(course)
+    @foods.where(food_type: course)
+  end
 end

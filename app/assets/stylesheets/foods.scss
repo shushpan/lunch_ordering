@@ -37,11 +37,13 @@ $background-color-drink-wrap: rgba(243, 156, 18, 0.31);
   }
 }
 .menu-wrap{
+  display: none;
   margin-top: 40px;
   .first-course-wrap, .main-course-wrap, .drink-wrap{
     border: 1px solid $border-color-food;
     border-radius: 12px;
     padding:0px 15px 0px 15px;
+    color: #2c3e50;
     .caption{
       margin:0px -15px 0px -15px;
       border-bottom: 1px solid $border-color-food;
@@ -55,12 +57,25 @@ $background-color-drink-wrap: rgba(243, 156, 18, 0.31);
         border-bottom: 1px solid $border-color-food;
         @include flexbox;
         @include align-items(center);
+        @include justify-content(space-between);
         &:hover{
           cursor: pointer;
         }
         img{
           margin-right: 10px;
         }
+        span{
+          text-align: left;
+        }
+        .price{
+          font-size: 1.1em;
+          font-weight: bold;
+        }
+      }
+      .no-food{
+        font-size: 14px;
+        text-align: center;
+        padding: 10px;
       }
       .food:last-child{
         border-bottom-left-radius: 11.5px;

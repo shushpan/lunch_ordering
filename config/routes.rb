@@ -19,4 +19,6 @@ Rails.application.routes.draw do
 
   get 'menu' => 'foods#index'
   post'get_foods_for_date' => 'foods#get_foods_for_date'
+
+  post 'new_order' => 'orders#new'
 end

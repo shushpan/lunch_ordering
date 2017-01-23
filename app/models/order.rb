@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   belongs_to :user
 
   def find_price_food_by_id(id)
-    id.zero? ? 0 : Food.find(id).price
+    id == 0 ? 0 : Food.find(id).price
   end
 
   def calculate_total_amount

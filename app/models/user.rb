@@ -11,5 +11,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: {minimum: 2, maximum: 30}
   validates :email, presence: true, length: {minimum: 4}
+  validates :telephone, presence: true, phone: true
 
 end

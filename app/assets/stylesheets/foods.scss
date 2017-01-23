@@ -108,4 +108,23 @@ $background-color-drink-wrap: rgba(243, 156, 18, 0.31);
   #order-btn{
     width: 100px;
   }
+  .order-by-wrap{
+    @include flexbox;
+    @include align-items(center);
+    .total-amount-wrap{
+      font-size: 1.2em;
+      position: absolute;
+      left:50%;
+      margin-left: -250px;
+      #total-amount{
+        padding-left: 5px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+.modal-content{
+  font-size: 1.3em;
+  padding: 1.5em;
+  color: rgba(0, 47, 0, 0.83);
 }

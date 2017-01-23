@@ -15,9 +15,9 @@ function get_menu_ajax(el) {
             }
         })
 }
-function set_radio_active_flag(all_elements,el) {
-    $(all_elements).removeClass('active btn-success')
-    el.addClass('active btn-success')
+function set_radio_active_flag(all_elements,el,className) {
+    $(all_elements).removeClass(className)
+    el.addClass(className)
 }
 
 $(document).on('turbolinks:load', function () {
@@ -29,7 +29,7 @@ $(document).on('turbolinks:load', function () {
         if(!$(this).hasClass('active')){
             $('.menu-wrap').css('display','none')
             get_menu_ajax($(this))
-            set_radio_active_flag(".weekdays-wrap .weekday",$(this))
+            set_radio_active_flag(".weekdays-wrap .weekday",$(this),"active btn-success")
         }
     })
 })

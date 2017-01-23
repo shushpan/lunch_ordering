@@ -15,4 +15,6 @@
 //= require jquery.validate
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require_tree .
+//= require foods
+//= require orders
+//= require validate

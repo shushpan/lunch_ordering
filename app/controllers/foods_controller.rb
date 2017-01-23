@@ -11,5 +11,4 @@ class FoodsController < ApplicationController
       render partial: 'content_menu', locals: {date: date}
     end
   end
-
 end

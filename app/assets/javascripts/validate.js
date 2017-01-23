@@ -43,6 +43,11 @@ $(document).on('turbolinks:load', function () {
 
     $('#user-edit').validate({
         rules: {
+            "user[name]": {
+                required: true,
+                minlength: 2,
+                maxlength: 30
+            },
             "user[email]":{
                 required: true,
                 email: true

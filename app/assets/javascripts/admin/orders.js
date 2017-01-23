@@ -19,10 +19,13 @@ function set_radio_active_flag(all_elements,el,className) {
 
 $(document).on('turbolinks:load', function () {
     $(this).ajaxSuccess(function (event, xhr, settings, data) {
-        if(settings.url.indexOf('/admin/get_orders_for_date') + 1) {
-            $('.orders-list-wrap').empty().html(data).fadeIn()
-            $('body').animate({scrollTop:0}, '500', 'swing');
-        }
+        if(settings.url.indexOf('/admin/get_orders_for_date') + 1)
+            if((settings.url.indexOf('page') + 1) ) {
+                $('.orders-list-wrap').empty().html(data).fadeIn()
+                $('body').animate({scrollTop: 0}, '500', 'swing');
+            }
+            else
+                $('.orders-list-wrap').empty().html(data).fadeIn()
     })
 
     today = $('.orders-list-content .weekdays-wrap .today')

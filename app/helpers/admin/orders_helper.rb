@@ -4,7 +4,13 @@ module Admin::OrdersHelper
     User.find(id)
   end
 
-  def find_food_by_id_and_type id, type
-    Food.where('id = ? and food_type = ?',id,type)
+  def find_food_by_id id
+    Food.find(id)
+  end
+
+  def calculate_total_cost_for_today
+    total_cost = 0.0
+    Order.where(date: Date.today).each{|order| total_cost += order.total_amount}
+    return total_cost
   end
 end

@@ -1,5 +1,19 @@
 @import "flexbox";
 
+.total-cost{
+  margin-top: 20px;
+  margin-bottom: -20px;
+  text-align: center;
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
+  .price{
+    padding-left: 15px;
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: underline;
+  }
+}
 .orders-list-wrap{
   .order-wrap{
     position: relative;
@@ -50,4 +64,7 @@
       }
     }
   }
+}
+.no-orders{
+  margin-top: 5%;
 }

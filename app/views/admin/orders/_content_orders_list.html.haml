@@ -1,28 +1,35 @@
-.row
-  -@orders.each do |order|
-    .order-wrap.panel.panel-default
-      .panel-body
-        .user-info
-          %h4.text-center User info
-          %dl.dl-horizontal
-            %dt Name:
-            %dd #{find_user_by_id(order.user_id).name}
-            %dt Email:
-            %dd #{find_user_by_id(order.user_id).email}
-            %dt Telephone:
-            %dd #{find_user_by_id(order.user_id).telephone}
-        .foods-info
-          %h4.text-center Foods
-          %dl.dl-horizontal
-            %dt First course:
-            %dd #{find_food_by_id_and_type()}
-            %dt Main course:
-            %dd sdsdsd@sdfds
-            %dt Drink:
-            %dd +79788075886
-        .total-amount
-          %h4 Total amount
-          %p.price 700 &#36
-.text-center
-  = will_paginate @orders, renderer: BootstrapPagination::Rails, class: 'pagination-sm'
-=javascript_include_tag 'admin/_order','data-turbolinks-track': 'reload'
+-if !@orders.blank?
+  -if local_assigns[:date] == Date.today.to_s
+    .total-cost
+      %h4 Total cost for today:
+      %span.price #{calculate_total_cost_for_today} &#36
+  .row
+    -@orders.each do |order|
+      .order-wrap.panel.panel-default
+        .panel-body
+          .user-info
+            %h4.text-center User info
+            %dl.dl-horizontal
+              %dt Name:
+              %dd #{find_user_by_id(order.user_id).name}
+              %dt Email:
+              %dd #{find_user_by_id(order.user_id).email}
+              %dt Telephone:
+              %dd #{find_user_by_id(order.user_id).telephone}
+          .foods-info
+            %h4.text-center Foods
+            %dl.dl-horizontal
+              %dt First course:
+              %dd #{find_food_by_id(order.first_course_id).name}
+              %dt Main course:
+              %dd #{find_food_by_id(order.main_course_id).name}
+              %dt Drink:
+              %dd #{find_food_by_id(order.drink_id).name}
+          .total-amount
+            %h4 Total amount
+            %p.price #{order.total_amount} &#36
+  .text-center
+    = will_paginate @orders, renderer: BootstrapPagination::Rails, class: 'pagination-sm'
+  =javascript_include_tag 'admin/_order','data-turbolinks-track': 'reload'
+-else
+%h4.text-center.text-muted.no-orders No orders

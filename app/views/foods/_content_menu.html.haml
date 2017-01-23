@@ -7,7 +7,7 @@
       .body
         -unless get_food_by_course('first-course').blank?
           -get_food_by_course('first-course').each do |food|
-            .food
+            .food{data:{ id: food.id } }
               .left-wrap
                 %img.img-circle{src: food.photo}
                 %span.name #{food.name}
@@ -21,7 +21,7 @@
       .body
         -unless get_food_by_course('main-course').blank?
           -get_food_by_course('main-course').each do |food|
-            .food{}
+            .food{data:{ id: food.id } }
               .left-wrap
                 %img.img-circle{src: food.photo}
                 %span.name #{food.name}
@@ -35,7 +35,7 @@
       .body
         -unless get_food_by_course('drinks').blank?
           -get_food_by_course('drinks').each do |food|
-            .food
+            .food{data:{ id: food.id } }
               .left-wrap
                 %img.img-circle{src: food.photo}
                 %span.name #{food.name}

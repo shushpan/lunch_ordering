@@ -9,7 +9,7 @@ class Admin::OrdersController < ApplicationController
   def get_orders_for_date
     date = params[:date]
     unless date.nil?
-      @orders = Order.where(date: date).paginate(page: params[:page],per_page: ORDER_PER_PAGE)
+      @orders = Order.where(date: date).paginate(page: params[:page],per_page: ORDER_PER_PAGE).order(created_at: :desc)
       render partial: 'content_orders_list', locals: {date: date}
     end
   end

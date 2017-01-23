@@ -22,5 +22,6 @@ Rails.application.routes.draw do
     resources :users, only: [:index]
     resources :orders, only: [:index]
     get 'get_orders_for_date' => 'orders#get_orders_for_date'
+    resources :foods, only: [:index, :create]
   end
 end

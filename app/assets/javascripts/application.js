@@ -16,5 +16,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require foods
-//= require orders
+//= require admin/orders
 //= require validate

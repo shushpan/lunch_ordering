@@ -4,14 +4,15 @@
   .modal-dialog.modal-sm
     .modal-content.text-center
       Order received, thanks!
-%h2.text-center Menu
-.weekdays-wrap
-  -days_of_the_current_week.each do |day|
-    .weekday.btn.btn-primary{ class: [day[:later_today] && 'disabled',
-                              day[:full_date] == Date.today && 'active today btn-success'],
-                              data:{'ajax-path': get_foods_for_date_path, date: day[:full_date] } }
-      %span.weekday-name #{day[:weekday]}
-      .addition
-        %span.day #{day[:day]}
-        %span.month #{day[:month]}
-.menu-wrap
+.menu-content
+  %h2.text-center Menu
+  .weekdays-wrap
+    -days_of_the_current_week.each do |day|
+      .weekday.btn.btn-primary{ class: [day[:later_today] && 'disabled',
+                                day[:full_date] == Date.today && 'active today btn-success'],
+                                data:{'ajax-path': get_foods_for_date_path, date: day[:full_date] } }
+        %span.weekday-name #{day[:weekday]}
+        .addition
+          %span.day #{day[:day]}
+          %span.month #{day[:month]}
+  .menu-wrap

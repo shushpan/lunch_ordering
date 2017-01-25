@@ -20,5 +20,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index]
+    resources :orders, only: [:index]
+    get 'get_orders_for_date' => 'orders#get_orders_for_date'
   end
 end

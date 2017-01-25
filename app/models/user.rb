@@ -13,4 +13,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: {minimum: 4}
   validates :telephone, presence: true, phone: true
 
+  def is_admin
+    self.admin
+  end
+
 end

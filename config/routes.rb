@@ -13,12 +13,12 @@ Rails.application.routes.draw do
 
   get 'check_email' => 'user/users#check_email'
 
-  namespace :users do
-    resource :foods, only: [:index]
-  end
-
   get 'menu' => 'foods#index'
   post'get_foods_for_date' => 'foods#get_foods_for_date'
 
   post 'new_order' => 'orders#new'
+
+  namespace :admin do
+    resources :users, only: [:index]
+  end
 end

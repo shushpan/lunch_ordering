@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :telephone])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :telephone])
   end
+
+  def is_user_admin
+    redirect_to root_path unless current_user.is_admin
+  end
 end

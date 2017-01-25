@@ -16,6 +16,9 @@
         .navbar-collapse
           -if(user_signed_in?)
             %ul.nav.navbar-nav.pull-right
+              -if current_user.is_admin
+                %li
+                  = link_to('Users', admin_users_path)
               %li.dropdown
                 %a.dropdown-toggle{'data-toggle':'dropdown', href: '#'}
                   = current_user.name

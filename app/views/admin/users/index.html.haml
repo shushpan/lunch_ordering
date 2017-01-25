@@ -1,0 +1,16 @@
+= provide(:title,'Users')
+%h2.text-center Users
+%table.table-bordered.table.table-striped
+  %tr.success
+    %th.text-center Number
+    %th.text-center Name
+    %th.text-center Email
+    %th.text-center Telephone
+  -@users.each do |user|
+    %tr
+      %td #{user.id}
+      %td #{user.name}
+      %td #{user.email}
+      %td #{user.telephone}
+.text-center
+  = will_paginate @users, renderer: BootstrapPagination::Rails, class: 'pagination-sm'

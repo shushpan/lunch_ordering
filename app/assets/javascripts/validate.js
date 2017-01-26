@@ -66,4 +66,24 @@ $(document).on('turbolinks:load', function () {
             }
         }
     })
+
+    $('#new-food').validate({
+        rules: {
+            "food[name]": {
+                required: true,
+                minlength: 2,
+                maxlength: 30
+            },
+            "food[price]": {
+                required: true,
+                number: true
+            },
+            "food[food_type]": {
+                required: true
+            },
+            "food[photo]": {
+                accept: "image/*"
+            }
+        }
+    })
 })

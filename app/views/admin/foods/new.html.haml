@@ -6,7 +6,7 @@
     .form-group
       = f.input :name, label: 'Name', required: true, autofocus: true
     .form-group
-      = f.input :price, label: 'Price', required: true
+      = f.input :price, label: 'Price', required: true, input_html:{value: 0}
     .form-group
       = f.input :food_type, label: 'Type',type: 'select', collection: ['First course', 'Main course', 'Drink'],
           selected: 'First course', required:true

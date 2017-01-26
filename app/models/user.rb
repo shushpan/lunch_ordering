@@ -4,7 +4,7 @@ class User < ApplicationRecord
     self.admin = true if User.count.zero?
   end
 
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

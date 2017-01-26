@@ -24,4 +24,10 @@ Rails.application.routes.draw do
     get 'get_orders_for_date' => 'orders#get_orders_for_date'
     resources :foods, only: [:new, :create]
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :orders, only: [:index]
+    end
+  end
 end

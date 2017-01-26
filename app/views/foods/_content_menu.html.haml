@@ -10,7 +10,7 @@
           -get_food_by_course('First course').each do |food|
             .food{data:{ id: food.id, price: food.price } }
               .left-wrap
-                %img.img-circle{src: food.photo}
+                =image_tag food.photo.url, class: 'img-rounded'
                 %span.name #{food.name}
               %span.price #{food.price} &#36;
         -else
@@ -24,7 +24,7 @@
           -get_food_by_course('Main course').each do |food|
             .food{data:{ id: food.id, price: food.price } }
               .left-wrap
-                %img.img-circle{src: food.photo}
+                =image_tag food.photo.url, class: 'img-rounded'
                 %span.name #{food.name}
               %span.price #{food.price} &#36;
         -else
@@ -38,7 +38,7 @@
           -get_food_by_course('Drink').each do |food|
             .food{data:{ id: food.id,  price: food.price } }
               .left-wrap
-                %img.img-circle{src: food.photo}
+                =image_tag food.photo.url, class: 'img-rounded'
                 %span.name #{food.name}
               %span.price #{food.price} &#36;
         -else

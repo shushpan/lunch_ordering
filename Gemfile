@@ -49,7 +49,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'activerecord-session_store'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'pg', '0.15.1'
   gem 'byebug', platform: :mri
 end
 

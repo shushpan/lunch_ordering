@@ -8,7 +8,10 @@ class Admin::FoodsController < ApplicationController
   def create
     @food = Food.new(permitted_params)
     @food.date = Date.today
-    @food.save!
+    if @food.save!
+      flash[:notice] = "You have successfully added food !"
+      redirect_to new_admin_food_path
+    end
   end
 
   private

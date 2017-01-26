@@ -1,6 +1,8 @@
 =provide(:title," Add new food")
 %h2.text-center Add new food
 .container
+  -flash.each do |name, msg|
+    = content_tag :div , msg, class: "alert alert-dismissible alert-success"
   = simple_form_for(@food, url: admin_foods_path(@food), html:{ :id => 'new-food'}) do |f|
     = f.error_notification
     .form-group

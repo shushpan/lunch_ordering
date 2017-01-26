@@ -7,7 +7,8 @@ class Admin::FoodsController < ApplicationController
 
   def create
     @food = Food.new(permitted_params)
-    render json: params[:photo]
+    @food.date = Date.today
+    @food.save!
   end
 
   private

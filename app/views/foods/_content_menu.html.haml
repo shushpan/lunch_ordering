@@ -6,8 +6,8 @@
       .caption
         %h4.text-center First course
       .body
-        -unless get_food_by_course('first-course').blank?
-          -get_food_by_course('first-course').each do |food|
+        -unless get_food_by_course('First course').blank?
+          -get_food_by_course('First course').each do |food|
             .food{data:{ id: food.id, price: food.price } }
               .left-wrap
                 %img.img-circle{src: food.photo}
@@ -20,8 +20,8 @@
       .caption
         %h4.text-center Main course
       .body
-        -unless get_food_by_course('main-course').blank?
-          -get_food_by_course('main-course').each do |food|
+        -unless get_food_by_course('Main course').blank?
+          -get_food_by_course('Main course').each do |food|
             .food{data:{ id: food.id, price: food.price } }
               .left-wrap
                 %img.img-circle{src: food.photo}
@@ -34,8 +34,8 @@
       .caption
         %h4.text-center Drink
       .body
-        -unless get_food_by_course('drinks').blank?
-          -get_food_by_course('drinks').each do |food|
+        -unless get_food_by_course('Drink').blank?
+          -get_food_by_course('Drink').each do |food|
             .food{data:{ id: food.id,  price: food.price } }
               .left-wrap
                 %img.img-circle{src: food.photo}

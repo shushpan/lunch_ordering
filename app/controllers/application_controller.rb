@@ -12,4 +12,12 @@ class ApplicationController < ActionController::Base
   def is_user_admin
     redirect_to root_path unless current_user.admin?
   end
+
+  def after_sign_in_path_for(resource)
+    root_path
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    root_path
+  end
 end

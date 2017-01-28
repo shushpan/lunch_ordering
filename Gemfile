@@ -49,7 +49,6 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'activerecord-session_store'
 
 group :development, :test do
-  gem 'pg', '0.15.1'
   gem 'byebug', platform: :mri
 end
 
@@ -61,10 +60,11 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'sqlite3'
+  gem 'rspec-rails'
 end
 
 group :production do
-  gem 'pg', '0.15.1'
+  gem 'pg'
   gem 'rails_12factor', '0.0.2'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -32,14 +32,15 @@ $('#order-btn').on('click', function(){
         main_course = $('.main-course-wrap').find('.food_active').attr('data-id'),
         drink =  $('.drink-wrap').find('.food_active').attr('data-id')
 
+
     if(first_course!=undefined || main_course!=undefined  || drink!=undefined ){
         var req = $.ajax({
             url: '/new_order',
             type: 'post',
             data:{
-                'first_course_id': check_undefined_id(first_course),
-                'main_course_id': check_undefined_id(main_course),
-                'drink_id': check_undefined_id(drink)
+                'foods' : [ check_undefined_id(first_course),
+                            check_undefined_id(main_course),
+                            check_undefined_id(drink)]
             },
             dataType: 'text',
             success: function(){

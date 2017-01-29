@@ -4,8 +4,8 @@ module Admin::OrdersHelper
     User.find(id)
   end
 
-  def find_food_by_id id
-    Food.find(id)
+  def find_food order, type
+    order.foods.find_by(food_type: type)
   end
 
   def calculate_total_cost_for_today

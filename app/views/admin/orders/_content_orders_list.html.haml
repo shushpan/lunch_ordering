@@ -20,18 +20,18 @@
             %h4.text-center Foods
             %dl.dl-horizontal
               %dt First course:
-              -if order.first_course_id != 0
-                %dd #{find_food_by_id(order.first_course_id).name}
+              -if !find_food(order, 'First course').blank?
+                %dd #{find_food(order, 'First course').name}
               -else
                 %dd -
               %dt Main course:
-              -if order.main_course_id != 0
-                %dd #{find_food_by_id(order.main_course_id).name}
+              -if find_food(order, 'Main course')
+                %dd #{find_food(order, 'Main course').name}
               -else
                 %dd -
               %dt Drink:
-              -if order.drink_id != 0
-                %dd #{find_food_by_id(order.drink_id).name}
+              -if find_food(order, 'Drink')
+                %dd #{find_food(order, 'Drink').name}
               -else
                 %dd -
           .total-amount

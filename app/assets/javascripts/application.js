@@ -18,3 +18,4 @@
 //= require foods
 //= require admin/orders
 //= require validate
+//= require additional-methods

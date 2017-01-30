@@ -47,7 +47,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'activerecord-session_store'
-
+gem "figaro"
 group :development, :test do
   gem 'byebug', platform: :mri
 end
